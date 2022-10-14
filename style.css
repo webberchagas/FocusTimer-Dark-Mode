@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --color-timer: #323238;
+  --color-button: #323238;
+  --color-button-hover: #02799D;
+
+  --bg-card: #E1E1E6;
+  --bg-icon: #323238;
+  --bg-slide: #323238;
+
+  --bg-card-hover: #02799D;
+  --bg-icon-hover: #FFFFFF;
+  --bg-slide-hover: #FFFFFF;
+}
+
+.dark-mode {
+  --color-timer: #FFFFFF;
+  --color-button: #C4C4CC;
+  --color-button-hover: #0A3442;
+
+  --bg-card: #29292E;
+  --bg-icon: #ffffff;
+  --bg-slide: #FFFFFF;
+
+  --bg-card-hover: #0A3442;
+  --bg-icon-hover: #FFFFFF;
+  --bg-slide-hover: #FFFFFF;
+  background: black;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 4rem;
+}
+
+header {
+  padding-top: 2rem;
+}
+
+.hide {
+  display: none;
+}
+
+#timer {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(9rem, 7rem + 9vw, 12.6rem);
+  line-height: 14.8rem;
+
+  display: flex;
+  color: var(--color-timer);
+}
+
+#controls {
+  display: flex;
+  gap: 4rem;
+}
+
+#controls button svg {
+  width: clamp(0.4rem, 3rem + 3vw, 4.8rem);
+}
+
+#controls button svg path {
+  fill: var(--color-button);
+}
+
+#controls button svg:hover path {
+  fill: var(--color-button-hover);
+}
+
+.sounds {
+  max-width: 30.8rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.2rem;
+}
+
+.sounds .card {
+  background: var(--bg-card);
+  border-radius: 2.4rem;
+  width: clamp(10rem, 5rem + 39vw, 13.8rem);
+  height: clamp(10rem, 5rem + 29vw, 15.2rem);
+  
+  display: grid;
+  justify-items: center;
+
+  position: relative;
+}
+
+.sounds .card button {
+  width: 100%;
+  height: 100%;
+}
+
+.sounds .card button svg {
+  margin-bottom: 3.2rem;
+}
+
+.sounds .card input {
+  position: absolute;
+  bottom: 2.4rem;
+}
+
+.sounds .card button.ativo,
+.sounds .card button.ativo svg path,
+.sounds .card:hover,
+.sounds .card:hover svg path
+{
+  background-color: var(--bg-card-hover);
+  fill: var(--bg-icon-hover);
+  border-radius: 2.4rem;
+}
+
+.dark-mode .sounds .card svg path {
+fill: var(--bg-icon-hover);
+}
+
+input {
+  cursor: pointer;
+
+  -webkit-appearance: none;
+
+  max-width: 9rem;
+
+  height: .4rem;
+
+  border-radius: 6rem;
+
+  background: var(--bg-slide);
+}
+
+input::-webkit-slider-thumb{
+  -webkit-appearance: none;
+
+  background: var(--bg-slide);
+
+  width: 1.6rem;
+  height: 1.6rem;
+
+  border-radius: 50%;
+}
+
+button.ativo + input,
+button.ativo + input::-webkit-slider-thumb,
+.card:hover button + input,
+.card:hover button + input::-webkit-slider-thumb{
+  background: var(--bg-slide-hover);
+}
+
+
+
+@media (min-width: 820px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16rem;
+  }
+
+  header {
+    position: absolute;
+    top: 6rem;
+    right: 6rem;
+
+    padding-top: 0;
+  }
+}
